@@ -3,6 +3,8 @@
 
 float *transpostaVetorSimples(int, int, float *);
 float **transpostaVetorPonteiros(int, int, float **);
+float *cria(int);
+float acessa(int, float *, int, int);
 
 int main(void)
 {
@@ -38,4 +40,28 @@ float **transpostaVetorPonteiros(int m, int n, float **mat)
          trp[j][i] = mat[i][j];
 
    return trp;
+}
+
+float *cria(int n)
+{
+   int s = n * (n - 1) / 2;
+   float *mat = (float *)malloc(s * sizeof(float));
+   return mat;
+}
+
+float acessa(int n, float *mat, int i, int j)
+{
+   int k; // indice do elemento do vetor
+   if (i < 0 || i >= n || j < 0 || j >= n)
+   {
+      printf("Acesso invalido\n");
+      exit(1);
+   }
+
+   if (i >= j)
+      k = i * (i + 1) / 2 + j;
+   else
+      k = j * (j + 1) / 2 + i;
+
+   return mat[k];
 }
