@@ -3,8 +3,8 @@
 
 float *transpostaVetorSimples(int, int, float *);
 float **transpostaVetorPonteiros(int, int, float **);
-float *cria(int);
-float acessa(int, float *, int, int);
+float **cria(int);
+float acessa(int, float **, int, int);
 
 int main(void)
 {
@@ -42,14 +42,15 @@ float **transpostaVetorPonteiros(int m, int n, float **mat)
    return trp;
 }
 
-float *cria(int n)
+float **cria(int n)
 {
-   int s = n * (n - 1) / 2;
-   float *mat = (float *)malloc(s * sizeof(float));
+   float **mat = (float **)malloc(n * sizeof(float *));
+   for (int i = 0; i < n; i++)
+      mat[i] = (float *)malloc((i + 1) * sizeof(float));
    return mat;
 }
 
-float acessa(int n, float *mat, int i, int j)
+float acessa(int n, float **mat, int i, int j)
 {
    int k; // indice do elemento do vetor
    if (i < 0 || i >= n || j < 0 || j >= n)
@@ -59,9 +60,7 @@ float acessa(int n, float *mat, int i, int j)
    }
 
    if (i >= j)
-      k = i * (i + 1) / 2 + j;
+      return mat[i][j];
    else
-      k = j * (j + 1) / 2 + i;
-
-   return mat[k];
+      return mat[j][i];
 }
