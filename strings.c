@@ -85,9 +85,26 @@ char *duplica(char *s)
    return d;
 }
 
+char *invert_string(char *s)
+{
+   int n = (strlen(s) - 1);
+   int temp = 0, i;
+
+   char *s_inv = (char *)malloc((n + 1) * sizeof(char));
+
+   for (i = n; i >= 0; i--)
+   {
+      s_inv[temp] = s[i];
+      temp++;
+   }
+
+   s_inv[temp] = '\0';
+   return s_inv;
+}
+
 int main(void)
 {
    char j[] = "jordanna";
-   print_inv(j);
+   printf("%s", invert_string(j));
    return 0;
 }
