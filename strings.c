@@ -119,7 +119,4 @@ void copy_rec(char *dest, char *orig)
 
 int main(void)
 {
-   char j[] = "jordanna";
-   printf("%s", invert_string(j));
-   return 0;
 }
