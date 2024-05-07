@@ -87,5 +87,7 @@ char *duplica(char *s)
 
 int main(void)
 {
+   char j[] = "jordanna";
+   print_inv(j);
    return 0;
 }
