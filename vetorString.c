@@ -42,7 +42,9 @@ int main(void)
 {
    char *students[MAX];
    int n = readNames(students);
+
    printNames(n, students);
    clearNames(n, students);
+
    return 0;
 }
