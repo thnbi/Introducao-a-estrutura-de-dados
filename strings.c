@@ -102,6 +102,21 @@ char *invert_string(char *s)
    return s_inv;
 }
 
+int comprimento_rec(char *s)
+{
+   if (s[0] == '\0')
+      return 0;
+   else
+      return 1 + comprimento_rec(&s[1]);
+}
+
+void copy_rec(char *dest, char *orig)
+{
+   dest[0] = orig[0];
+   if (orig[0] != '\0')
+      copy_rec(&dest[1], &orig[1]);
+}
+
 int main(void)
 {
    char j[] = "jordanna";
