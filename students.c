@@ -19,21 +19,6 @@ void initialize(int n, Student **tab)
       tab[i] = NULL;
 }
 
-void getDataFromTerm(Student **tab, int i)
-{
-   printf("Matricula: ");
-   scanf("%d", &tab[i]->mat);
-
-   printf("Nome: ");
-   scanf(" %80[^\n]", tab[i]->name);
-
-   printf("Endereco: ");
-   scanf(" %120[^\n]", tab[i]->addr);
-
-   printf("Telefone: ");
-   scanf(" %20[^\n]", tab[i]->phone);
-}
-
 int invalidVectorLimit(int n, int i)
 {
    if (i < 0 || i >= n)
@@ -50,7 +35,18 @@ void fill(int n, Student **tab, int i)
       exit(1);
    if (tab[i] == NULL)
       tab[i] = (Student *)malloc(sizeof(Student));
-   getDataFromTerm(tab, i);
+      
+   printf("Matricula: ");
+   scanf("%d", &tab[i]->mat);
+
+   printf("Nome: ");
+   scanf(" %80[^\n]", tab[i]->name);
+
+   printf("Endereco: ");
+   scanf(" %120[^\n]", tab[i]->addr);
+
+   printf("Telefone: ");
+   scanf(" %20[^\n]", tab[i]->phone);
 }
 
 void takeOff(int n, Student **tab, int i)
